@@ -34,12 +34,43 @@ class JobView(ViewSet):
         serialized = JobSerializer(jobs, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
+    def update(self, request, pk=None):
+        """Handles PUT request for single job"""
+        # Select the targeted job using pk
+        job = Job.objects.get(pk=pk)
+
+        # Get the parent id from the cliet request
+        parent_id = request.data['parent']
+
+        # Select the parent from the database using that id
+        assigned_parent = Parent.objects.get(pk=parent_id)
+
+        # Assign that Parent instance to the parent property of the job
+        job.parent = assigned_parent
+
+        # Save the updated job
+        job.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+
+
+    def destroy(self, request, pk=None):
+        """Handle DELETE requests for service tickets
+
+        Returns:
+            Response -- None with 204 status code
+        """
+        job = Job.objects.get(pk=pk)
+        job.delete()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 
     def create(self, request):
         """Handle POST requests for jobs
 
         Returns:
-            Response: JSON serialized representation of newly created service ticket
+            Response: JSON serialized representation of newly created jobs.
         """
         new_job = Job()
         new_job.parent = Parent.objects.get(user=request.auth.user)
