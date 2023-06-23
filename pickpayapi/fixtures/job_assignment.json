@@ -1,0 +1,31 @@
+[
+    {
+        "model": "pickpayapi.JobAssignment",
+        "pk": 1,
+        "fields": {
+            "child": 1,
+            "job": 2,
+            "completed": "True"
+        }
+    },
+    
+    {
+        "model": "pickpayapi.JobAssignment",
+        "pk": 2,
+        "fields": {
+            "child": 1,
+            "job": 1,
+            "completed": "False"
+        }
+    },
+
+    {
+        "model": "pickpayapi.JobAssignment",
+        "pk": 3,
+        "fields": {
+            "child": 2,
+            "job": 3,
+            "completed": "False"
+        }
+    }
+]

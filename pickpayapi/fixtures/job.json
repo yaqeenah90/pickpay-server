@@ -1,0 +1,37 @@
+[
+    {
+        "model": "pickpayapi.job",
+        "pk": 1,
+        "fields": {
+            "title": "Kitchen",
+            "description": "Wash the dishes, wipe off the counters, sweep the floor, mop the floor and take out the trash for the week. ",
+            "rate": 25.00,
+            "assigned_to": [1],
+            "parent": 1
+        }
+    },
+
+    {
+        "model": "pickpayapi.job",
+        "pk": 2,
+        "fields": {
+            "title": "Bathroom",
+            "description": "scrub the tub, clean the sink,  clean the toilet, sweep the floor, mop the floor and take out the trash for the week. ",
+            "rate": 15.00,
+            "assigned_to": [2],
+            "parent": 1
+        }
+    },
+
+    {
+        "model": "pickpayapi.job",
+        "pk": 3,
+        "fields": {
+            "title": "Yard Work",
+            "description": "mow the lawn, rake the leaves, water the plants, trim the hedges and pick up any trash in the yard ",
+            "rate": 70.00,
+            "assigned_to": [1, 2],
+            "parent": 1
+        }
+    }
+]

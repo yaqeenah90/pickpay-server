@@ -1,0 +1,37 @@
+[
+    {
+    "model": "pickpayapi.child",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "financial_goal": 75.00
+    }
+},
+
+{
+    "model": "pickpayapi.child",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "financial_goal": 25.00
+    }
+},
+
+{
+    "model": "pickpayapi.child",
+    "pk": 2,
+    "fields": {
+        "user": 5,
+        "financial_goal": 40.00
+    }
+},
+
+{
+    "model": "pickpayapi.child",
+    "pk": 2,
+    "fields": {
+        "user": 6,
+        "financial_goal": 85.00
+    }
+}
+]

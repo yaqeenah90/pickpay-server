@@ -14,10 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.urls import path
 from django.contrib import admin
 from django.conf.urls import include
 from rest_framework import routers
-from django.urls import path
 from pickpayapi.views import register_user, login_user, ParentView, ChildView, JobView, JobAssignmentView
 
 router = routers.DefaultRouter(trailing_slash=False)

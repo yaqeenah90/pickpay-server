@@ -3,4 +3,8 @@
         "--load-plugins=pylint_django",
         "--django-settings-module=pickpay.settings",
     ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }

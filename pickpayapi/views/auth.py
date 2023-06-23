@@ -95,22 +95,25 @@ def register_user(request):
                 status=status.HTTP_400_BAD_REQUEST
             )
         account = None
+        is_parent = False 
             #
         if account_type == 'child':
             account = Child.objects.create(
-                financial_goal=request.data['financial_goal', None],
+                financial_goal=request.data['financial_goal'],
                 user= new_user
             )
         elif account_type == 'parent':
             
+            is_parent = True
             new_user.save()
             account = Parent.objects.create(
-                monthly_budget=request.data['monthly_budget', None],
+                monthly_budget=request.data['monthly_budget'],
                 user= new_user
             )
             # Use the REST Framework's token generator on the new user account
         token = Token.objects.create(user=account.user)
                 # Return the token to the client
-        data = { 'token': token.key, 'parent': new_user.is_parent }
+                
+        data = { 'token': token.key, 'parent':is_parent  }
         return Response(data)
     

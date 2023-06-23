@@ -19,6 +19,7 @@ class JobAssignmentView(ViewSet):
         assignment = JobAssignment.objects.get(pk=pk)
         serialized = JobAssignmentSerializer(assignment)
         return Response(serialized.data, status=status.HTTP_200_OK)
+    
 
 
     def create(self, request):
@@ -28,8 +29,9 @@ class JobAssignmentView(ViewSet):
         """
 
         new_assignment = JobAssignment()
-        new_assignment.completed = request.data['completed']
+        
         new_assignment.child = Child.objects.get(user=request.auth.user)
+        new_assignment.completed = request.data['completed']
         new_assignment.job = Job.objects.get(pk=request.data["job"])
         new_assignment.save()
         
